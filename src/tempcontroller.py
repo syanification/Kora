@@ -16,7 +16,7 @@ def main2():
         return 1  # sotify creds couldn't load
     sp = SpotifyConnect(spConnectInfo)
     while True:
-        query = input("Enter song name")
+        query = input("Enter song name: ")
         sp.findAndPlaySong(query)
 
 
