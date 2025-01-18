@@ -14,3 +14,87 @@
 {"prompt": "skip this song", "completion": "skip"}
 {"prompt": "next song please", "completion": "skip"}
 {"prompt": "next song", "completion": "skip"}
+{"prompt": "what is the weather today", "completion": "None"}
+{"prompt": "halt", "completion": "pause"}
+{"prompt": "terminate playing", "completion": "pause"}
+{"prompt": "cease playing", "completion": "pause"}
+{"prompt": "I like the flavor of chocolate", "completion": "None"}
+{"prompt": "play death cry", "completion": "play death cry"}
+{"prompt": "begin playing thats life", "completion": "play thats life"}
+{"prompt": "stop stop stop", "completion": "pause"}
+{"prompt": "turn off the music", "completion": "pause"}
+{"prompt": "I hate this song", "completion": "skip"}
+{"prompt": "play babylon", "completion": "play babylon"}
+{"prompt": "I want to hear the song cry out", "completion": "play cry out"}
+{"prompt": "waffles and cheese go with milk", "completion": "None"}
+{"prompt": "I cross the street on my hands on knees", "completion": "None"}
+{"prompt": "stop playing", "completion": "pause"}
+{"prompt": "start dad rock", "completion": "play dad rock"}
+{"prompt": "Can you play blinding lights", "completion": "play blinding lights"}
+{"prompt": "Turn on hotel california", "completion": "play hotel california"}
+{"prompt": "hit play on despacito", "completion": "play despacito"}
+{"prompt": "begin thinking out loud", "completion": "play thinking out loud"}
+{"prompt": "forward", "completion": "skip"}
+{"prompt": "pause this please", "completion": "pause"}
+{"prompt": "play the track bad romance", "completion": "play bad romance"}
+{"prompt": "stop for now", "completion": "pause"}
+{"prompt": "can we skip this track", "completion": "skip"}
+{"prompt": "pause that tune", "completion": "pause"}
+{"prompt": "put on wide awake", "completion": "play wide awake"}
+{"prompt": "move on to the next one", "completion": "skip"}
+{"prompt": "freeze the track", "completion": "pause"}
+{"prompt": "change the song", "completion": "skip"}
+{"prompt": "begin wonderwall by oasis", "completion": "play wonderwall by oasis"}
+{"prompt": "can you move on", "completion": "skip"}
+{"prompt": "can you play wake me up", "completion": "play wake me up"}
+{"prompt": "pause for a moment", "completion": "pause"}
+{"prompt": "enter the gungeon is a great game", "completion": "None"}
+{"prompt": "next song please", "completion": "skip"}
+{"prompt": "pause it now", "completion": "pause"}
+{"prompt": "what does tomorrow even mean", "completion": "None"}
+{"prompt": "start the song memories", "completion": "play memories"}
+{"prompt": "oliver eats rice for dinner", "completion": "None"}
+{"prompt": "stop the music for a second", "completion": "pause"}
+{"prompt": "keep playing", "completion": "resume"}
+{"prompt": "start the song forever", "completion": "play forever"}
+{"prompt": "hey can you play the song forever after", "completion": "play forever after"}
+{"prompt": "put a hold on the music", "completion": "pause"}
+{"prompt": "let the music play", "completion": "resume"}
+{"prompt": "i'm losing my mind", "completion": "None"}
+{"prompt": "what is the meaning of life", "completion": "None"}
+{"prompt": "resume the music", "completion": "resume"}
+{"prompt": "hit pause", "completion": "pause"}
+{"prompt": "play begin the begine", "completion": "play begin the begine"}
+{"prompt": "no more", "completion": "pause"}
+{"prompt": "play evermore", "completion": "play evermore"}
+{"prompt": "begin thinking out loud", "completion": "play thinking out loud"}
+{"prompt": "skip to the next track", "completion": "skip"}
+{"prompt": "please play thhe song birth right", "completion": "play birth right"}
+{"prompt": "pause the music please", "completion": "pause"}
+{"prompt": "play the song bad guy", "completion": "play bad guy"}
+{"prompt": "big bertha", "completion": "None"}
+{"prompt": "big beards breed bronchitis", "completion": "None"}
+{"prompt": "can you play that song thunderstruck by acdc", "completion": "play thunderstruck by acdc"}
+{"prompt": "What are the baseball scores today", "completion": "None"}
+{"prompt": "play roar by katy perry", "completion": "play roar by katy perry"}
+{"prompt": "no not this song", "completion": "skip"}
+{"prompt": "hold on", "completion": "pause"}
+{"prompt": "start playing let it be by the beatles", "completion": "play let it be by the beatles"}
+{"prompt": "stop this song", "completion": "pause"}
+{"prompt": "hold", "completion": "pause"}
+{"prompt": "pause for a second", "completion": "pause"}
+{"prompt": "play uptown funk", "completion": "play uptown funk"}
+{"prompt": "what is the deal with airline food", "completion": "None"}
+{"prompt": "start the song smooth by santana", "completion": "play smooth by santana"}
+{"prompt": "I want to hear imagine by john lenon", "completion": "play imagine by john lenon"}
+{"prompt": "can we hold on a second", "completion": "pause"}
+{"prompt": "i would like to skip this song", "completion": "skip"}
+{"prompt": "continue", "completion": "resume"}
+{"prompt": "keep playing the music", "completion": "resume"}
+{"prompt": "skip forward and play the next track", "completion": "skip"}
+{"prompt": "okay keep playing", "completion": "resume"}
+{"prompt": "have i ever told you the story of the three blind elephants", "completion": "None"}
+{"prompt": "please play the song all of me by john legend", "completion": "play all of me by john legend"}
+{"prompt": "please play the next song", "completion": "skip"}
+{"prompt": "okay resume the music", "completion": "resume"}
+{"prompt": "can you play the track take five", "completion": "play take five"}
