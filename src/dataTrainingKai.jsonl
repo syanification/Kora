@@ -1,0 +1,100 @@
+{"prompt": "I want to hear Bones", "completion": "play Bones"}
+{"prompt": "I want to listen Thunder", "completion": "play Thunder"}
+{"prompt": "I want to listen to Demons", "completion": "play Demons"}
+{"prompt": "Please play Radioactive", "completion": "play Radioactive"}
+{"prompt": "I do not want to hear Bones", "completion": "pause"}
+{"prompt": "Play Sharks", "completion": "play Sharks"}
+{"prompt": "I would like to listen to Natural", "completion": "play Natural"}
+{"prompt": "Can you play Bad Liar for me?", "completion": "play Bad Liar"}
+{"prompt": "Could you play Believer", "completion": "play Believer"}
+{"prompt": "Can we play Enemy", "completion": "play Enemy"}
+{"prompt": "How about playing Whatever it takes", "completion": "play Whatever it takes"}
+{"prompt": "Could you please stop the music", "completion": "pause"}
+{"prompt": "Let's pause the music for a second", "completion": "pause"}
+{"prompt": "Can you turn off the music", "completion": "pause"}
+{"prompt": "Please stop playing Believer", "completion": "pause"}
+{"prompt": "Pause the music", "completion": "pause"}
+{"prompt": "Can you mute the music?", "completion": "pause"}
+{"prompt": "I do not want to hear Enemy anymore", "completion": "pause"}
+{"prompt": "Please end the music", "completion": "pause"}
+{"prompt": "Continue playing", "completion": "resume"}
+{"prompt": "Please turn down the music", "completion": "pause"}
+{"prompt": "Can you turn down the music?", "completion": "pause"}
+{"prompt": "Mute the music,please", "completion": "pause"}
+{"prompt": "Turn off the music", "completion": "pause"}
+{"prompt": "Please turn off the music", "completion": "pause"}
+{"prompt": "Can you play Bones again?", "completion": "play Bones"}
+{"prompt": "Please play Bones again", "completion": "play Bones"}
+{"prompt": "Let's hear Thunder", "completion": "play Thunder"}
+{"prompt": "I want to hear Enemy again", "completion": "play Enemy"}
+{"prompt": "I like eating noodles", "completion": "None"}
+{"prompt": "Eat some chips", "completion": "None"}
+{"prompt": "The capital of Canada is Ottawa", "completion": "None"}
+{"prompt": "I like this song", "completion": "None"}
+{"prompt": "I want to listen to Natural again", "completion": "play Natural"}
+{"prompt": "Play the Follow You again", "completion": "play Follow You"}
+{"prompt": "Everybody want to be my enemy", "completion": "None"}
+{"prompt": "Please wake me up", "completion": "None"}
+{"prompt": "I want to hear Walking the Wire now", "completion": "play Walking the Wire"}
+{"prompt": "Let's play Hear Me", "completion": "play Hear Me"}
+{"prompt": "Carrots are larger than raddishes", "completion": "None"}
+{"prompt": "I am tired of these musics", "completion": "pause"}
+{"prompt": "Would you stop the music, please?", "completion": "pause"}
+{"prompt": "It's rainy outside", "completion": "pause"}
+{"prompt": "Play the next music", "completion": "skip"}
+{"prompt": "Can I listen to the next music?", "completion": "skip"}
+{"prompt": "Can you skip to next music", "completion": "skip"}
+{"prompt": "I am tired of this music", "completion": "pause"}
+{"prompt": "Wow, nice bike!", "completion": "None"}
+{"prompt": "I like Shots", "completion": "None"}
+{"prompt": "Could you stop playing the music?", "completion": "pause"}
+{"prompt": "Please shut off music", "completion": "pause"}
+{"prompt": "Please stop the sound", "completion": "pause"}
+{"prompt": "Can you stop the track?", "completion": "pause"}
+{"prompt": "Please stop the song", "completion": "pause"}
+{"prompt": "Could you turn off the audio?", "completion": "pause"}
+{"prompt": "Please stop the track", "completion": "pause"}
+{"prompt": "Please turn off the audio", "completion": "pause"}
+{"prompt": "Can we move to next song?", "completion": "skip"}
+{"prompt": "Let's go to the next song", "completion": "skip"}
+{"prompt": "Can you play the next song?", "completion": "skip"}
+{"prompt": "Let's switch to the next song", "completion": "skip"}
+{"prompt": "I would like to jump to the next song", "completion": "skip"}
+{"prompt": "Can we change to the next song?", "completion": "skip"}
+{"prompt": "I want to move on to the next song", "completion": "skip"}
+{"prompt": "Let's skip the music", "completion": "skip"}
+{"prompt": "Please skip to the next song", "completion": "skip"}
+{"prompt": "Can we go to the next song?", "completion": "skip"}
+{"prompt": "Let us hear the next song", "completion": "skip"}
+{"prompt": "I would like to skip this song", "completion": "skip"}
+{"prompt": "Please switch to the next song", "completion": "skip"}
+{"prompt": "Please open the regrigerator", "completion": "None"}
+{"prompt": "Could you open the drawer?", "completion": "None"}
+{"prompt": "Give me some money", "completion": "None"}
+{"prompt": "I love Taylor Swift", "completion": "None"}
+{"prompt": "Do not stop, keep playing", "completion": "resume"}
+{"prompt": "Please let me look at your resume", "completion": "None"}
+{"prompt": "Please do not stop the music", "completion": "resume"}
+{"prompt": "Keep the music on", "completion": "resume"}
+{"prompt": "Keep the songs playing", "completion": "resume"}
+{"prompt": "Don't pause the music", "completion": "resume"}
+{"prompt": "Let the song alive", "completion": "resume"}
+{"prompt": "Why the song stops?", "completion": "resume"}
+{"prompt": "Keep the song running", "completion": "resume"}
+{"prompt": "Keep the playlist running", "completion": "resume"}
+{"prompt": "Don't halt the music", "completion": "resume"}
+{"prompt": "Music", "completion": "resume"}
+{"prompt": "Do not pause the song", "completion": "resume"}
+{"prompt": "Keep the beat alive", "completion": "resume"}
+{"prompt": "Let the music roll", "completion": "resume"}
+{"prompt": "Let the music keep playing", "completion": "resume"}
+{"prompt": "Keep the sound alive", "completion": "resume"}
+{"prompt": "Can we switch to the next song?", "completion": "skip"}
+{"prompt": "Please move to the next song", "completion": "skip"}
+{"prompt": "I want to change to the next song", "completion": "skip"}
+{"prompt": "I am batman", "completion": "None"}
+{"prompt": "Hello", "completion": "None"}
+{"prompt": "Can we play the next track?", "completion": "skip"}
+{"prompt": "Please jump to next song", "completion": "skip"}
+{"prompt": "I want to drink cococola", "completion": "None"}
+{"prompt": "This is number 100", "completion": "None"}
