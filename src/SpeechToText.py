@@ -1,7 +1,7 @@
 import speech_recognition as sr
 # Initialize recognizer class (for recognizing speech)
 recognizer = sr.Recognizer()
-
+#
 # Function to simulate controlling music based on command
 def control_music(command):
     if "play song" in command:
