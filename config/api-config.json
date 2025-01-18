@@ -1,5 +1,5 @@
 {
-    "scope": "playlist-modify-private playlist-modify-public",
+    "scope": "playlist-modify-private playlist-modify-public user-modify-playback-state",
     "cid": "15d4a1cb85284033abc9279f3803a37b",
     "secret": "1a804d5559344fd4af6d49ad8257b0eb",
     "redirectURI": "http://localhost:8888/callback"
