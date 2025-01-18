@@ -1,8 +1,8 @@
-def play_action():
-    print("play_action() method called")
+def speak_action():
+    print("speak_action() method called")
 
 def pause_action():
     print("pause_action() method called")
 
 def next_action():
-    print("resume_action() method called")
+    print("next_action() method called")
