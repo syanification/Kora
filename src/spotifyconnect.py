@@ -34,7 +34,9 @@ class SpotifyConnect:
                     scope=basicInfo.get("scope"),
                 )
             )
+            user = self.__sp.current_user()
         except Exception as e:
+            print("ERROR")
             print(e)
 
     def searchTracks(self, query: str):

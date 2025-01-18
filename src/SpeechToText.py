@@ -1,6 +1,9 @@
 import speech_recognition as sr
+
 # Initialize recognizer class (for recognizing speech)
 recognizer = sr.Recognizer()
+
+
 #
 # Function to simulate controlling music based on command
 def control_music(command):
@@ -22,11 +25,14 @@ def control_music(command):
     else:
         print("Command not recognized!")
 
+
 # Use the microphone as the audio source
 try:
     with sr.Microphone() as source:
         print("Please say a command...")
-        recognizer.adjust_for_ambient_noise(source)  # Adjust for ambient noise in the environment
+        recognizer.adjust_for_ambient_noise(
+            source
+        )  # Adjust for ambient noise in the environment
         audio = recognizer.listen(source)  # Capture the audio
 
         try:

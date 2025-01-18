@@ -1,4 +1,5 @@
 __pycache__
 src/gptConfig.py
 config/api-config.json
+src/.cache
 
