@@ -1,8 +1,8 @@
 import json
 
 # Input file in prompt-completion format
-input_file = "trainingData_prepared.jsonl"
-output_file = "trainingData_chat_prepared.jsonl"
+input_file = "../data/trainingData_prepared.jsonl"
+output_file = "../data/trainingData_chat_prepared.jsonl"
 
 # Convert to chat format
 with open(input_file, "r") as infile, open(output_file, "w") as outfile:

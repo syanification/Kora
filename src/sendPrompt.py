@@ -13,4 +13,4 @@ def getCommand(input):
     return completion.choices[0].message.content
 
 
-print(getCommand("Turn on the song holy star by grandmaster"))
+print(getCommand("play the next song please"))
