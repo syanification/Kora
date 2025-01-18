@@ -1,5 +1,6 @@
 from setup import loadBasicInfo
 from spotifyconnect import SpotifyConnect
+from aladeen import Aladeen
 
 
 def main():
@@ -20,5 +21,10 @@ def main2():
         sp.findAndPlaySong(query)
 
 
+def main3():
+    aladeen = Aladeen()
+    aladeen.handleVoiceCommands()
+
+
 if __name__ == "__main__":
-    main2()
+    main3()

@@ -23,21 +23,20 @@ class SpotifyConnect:
         def __str__(self):
             return self.__msg
 
-    def __init__(self, basicInfo: dict):
+    def __init__(self, connectionInfo: dict):
         # initializing the spotify session
         try:
             self.__sp = spotipy.Spotify(
                 auth_manager=SpotifyOAuth(
-                    client_id=basicInfo.get("cid"),
-                    client_secret=basicInfo.get("secret"),
-                    redirect_uri=basicInfo.get("redirectURI"),
-                    scope=basicInfo.get("scope"),
+                    client_id=connectionInfo.get("cid"),
+                    client_secret=connectionInfo.get("secret"),
+                    redirect_uri=connectionInfo.get("redirectURI"),
+                    scope=connectionInfo.get("scope"),
                 )
             )
-            user = self.__sp.current_user()
-        except Exception as e:
-            print("ERROR")
+        except SpotifyException as e:
             print(e)
+            raise Exception("Unable to initialize connection to Spotify API")
 
     def searchTracks(self, query: str):
         """Returns the first 10 tracks received from the search"""
@@ -62,13 +61,20 @@ class SpotifyConnect:
             print(e)
             raise self.PlaybackError("Error playing song")
 
-    def pauseSong(self):
+    def pausePlayback(self):
         """Pauses the song currently playing"""
         try:
             self.__sp.pause_playback()
         except SpotifyException as e:
             print(e)
             raise self.PlaybackError("Error pausing playback")
+
+    def resumePlayback(self):
+        try:
+            self.__sp.start_playback()
+        except SpotifyException as e:
+            print(e)
+            raise self.PlaybackError("Error resuming playback")
 
     def skipSong(self):
         """Skips to the next song in queue"""
