@@ -41,7 +41,9 @@ class SpotifyConnect:
     def searchTracks(self, query: str):
         """Returns the first 10 tracks received from the search"""
         try:
-            return self.__sp.search(q=query, type="track", limit=10)["tracks"]["items"]
+            return self.__sp.search(q=query, type="track", limit=10)["tracks"][
+                "items"
+            ]
         except SpotifyException as e:
             print(e)
             raise self.SearchError("Error while searching for song")

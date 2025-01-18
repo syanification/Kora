@@ -28,12 +28,16 @@ class Aladeen:
         # call the voice shit to get the speech to text input
         query = ""
         result = SpeechToText.getAudioString()
-        print(result)
+        print("speech to text result: %s" % (result))
         command = sendPrompt.getCommand(result)
+        print("command: %s" % command)
 
         if command[:4] == "play":
             query = command[5:]
+            command = command[:4]
 
+        print(command)
+        print(query)
         try:
             match command:
                 case "play":
