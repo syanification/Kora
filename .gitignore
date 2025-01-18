@@ -1,2 +1,4 @@
 __pycache__
-gptConfig.py
+src/gptConfig.py
+config/api-config.json
+
