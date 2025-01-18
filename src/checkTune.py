@@ -1,4 +1,5 @@
 from openai import OpenAI
+
 client = OpenAI()
 
 # Retrieve the state of a fine-tune

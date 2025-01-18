@@ -11,7 +11,7 @@ with open(input_file, "r") as infile, open(output_file, "w") as outfile:
         chat_format = {
             "messages": [
                 {"role": "user", "content": example["prompt"]},
-                {"role": "assistant", "content": example["completion"].strip()}
+                {"role": "assistant", "content": example["completion"].strip()},
             ]
         }
         outfile.write(json.dumps(chat_format) + "\n")
