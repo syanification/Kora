@@ -5,7 +5,7 @@ from spotifyconnect import SpotifyConnect
 def main():
     spConnectInfo = loadBasicInfo()
     if not spConnectInfo:
-        return 1  # sotify creds couldn't load
+        return 1  # spotify creds couldn't load
     sp = SpotifyConnect(spConnectInfo)
     sp.searchTracks("basil pesto sedge warbler")
 
