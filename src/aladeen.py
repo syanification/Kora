@@ -70,11 +70,10 @@ class Aladeen(EventDispatcher):
             print(e)
 
     def play(self, query):
-        self.sp.findAndPlaySong(query)
+        title, length, coverurl = self.sp.findAndPlaySong(query)
         print("Playing song")
 
         # Change this to sending the relevant details about the song
-        title = length = coverurl = "GET FUCKED"
         self.dispatch("on_play", title, length, coverurl)
 
     def pause(self):
@@ -89,5 +88,14 @@ class Aladeen(EventDispatcher):
 
     def skip(self):
         self.sp.skipSong()
+        isPlaying, title, coverurl = self.sp.getCurrentPlaybackState()
         print("Skipping")
         self.dispatch("on_skip")  # Notify UI
+
+    def getPlaybackState(self):
+        try:
+            state = self.sp.getCurrentPlaybackState()
+        except SpotifyConnect.PlaybackError as e:
+            print(e)
+            return
+        return state
