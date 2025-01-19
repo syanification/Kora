@@ -14,9 +14,6 @@ class MyKivyApp(App):
         Window.size = (600, 250)
         Window.clearcolor = (0.1, 0.1, 0.1, 1)  # Dark background color
 
-<<<<<<< HEAD
-        main_layout = BoxLayout(orientation="vertical", padding=20, spacing=20)
-=======
         # Create a root layout to hold the background and main layout
         root_layout = FloatLayout()
 
@@ -25,7 +22,6 @@ class MyKivyApp(App):
 
         # Main layout
         main_layout = BoxLayout(orientation='vertical', padding=20, spacing=20, size_hint=(None, None), size=(600, 250), pos_hint={'center_x': 0.5, 'center_y': 0.5})
->>>>>>> pretty-gui
 
         # Music Player Layout
         music_layout = BoxLayout(
@@ -33,20 +29,6 @@ class MyKivyApp(App):
         )
         music_layout.size = (300, 200)  # Ensure the music layout fits on screen
 
-<<<<<<< HEAD
-        # Song Title Display
-        song_title = Label(
-            text="Now Playing:",
-            color=(1, 1, 1, 1),
-            font_size=24,
-            bold=True,
-            size_hint=(1, None),
-            size_hint_y=None,
-            height=50,
-            halign="center",
-        )
-        music_layout.add_widget(song_title)
-=======
         # Replace direct song_title addition with a FloatLayout
         title_layout = FloatLayout(size_hint=(None, None), size=(300, 60))
 
@@ -67,46 +49,14 @@ class MyKivyApp(App):
 
         # Add the float layout to the music layout
         music_layout.add_widget(title_layout)
->>>>>>> pretty-gui
 
         # Music Controls
         controls = BoxLayout(orientation='vertical', size_hint=(None, 0.3), width=280, spacing=20, padding=[15, 0, 0, -25])
 
-<<<<<<< HEAD
-        # Create buttons with consistent styling
-        play_button = Button(
-            text="Play",
-            size_hint=(None, None),
-            size=(130, 50),
-            background_normal="",
-            background_color=(0.2, 0.2, 0.2, 1),
-            color=(1, 1, 1, 1),
-            font_size=18,
-        )
-        pause_button = Button(
-            text="Pause",
-            size_hint=(None, None),
-            size=(130, 50),
-            background_normal="",
-            background_color=(0.2, 0.2, 0.2, 1),
-            color=(1, 1, 1, 1),
-            font_size=18,
-        )
-        next_button = Button(
-            text="Next",
-            size_hint=(None, None),
-            size=(130, 50),
-            background_normal="",
-            background_color=(0.2, 0.2, 0.2, 1),
-            color=(1, 1, 1, 1),
-            font_size=18,
-        )
-=======
         # Create ImageButtons with consistent styling
         speak_button = Image(source="../img/mic.png", size_hint=(None, None), size=(100, 100))
         pause_button = Image(source="../img/pause.png", size_hint=(None, None), size=(40, 40))
         next_button = Image(source="../img/skip.png", size_hint=(None, None), size=(40, 40))
->>>>>>> pretty-gui
 
         # Attach callbacks to buttons
         speak_button.bind(on_touch_down=lambda instance, touch: Actions.speak_action() if speak_button.collide_point(*touch.pos) else None)
@@ -132,17 +82,8 @@ class MyKivyApp(App):
         music_layout.add_widget(controls)
 
         # Center music layout vertically in the main layout
-<<<<<<< HEAD
-        center_layout = BoxLayout(
-            orientation="vertical", size_hint=(1, 1), padding=[10, 0], spacing=20
-        )
-        center_layout.add_widget(
-            Widget(size_hint_y=0.35)
-        )  # Spacer to center vertically
-=======
         center_layout = BoxLayout(orientation='horizontal', size_hint=(1, 1), padding=[0, 0], spacing=0)
         center_layout.add_widget(Widget(size_hint_y=0.35))  # Spacer to center vertically
->>>>>>> pretty-gui
         center_layout.add_widget(music_layout)
         center_layout.add_widget(
             Widget(size_hint_y=0.35)
