@@ -9,6 +9,7 @@ import Actions
 
 
 class MyKivyApp(App):
+
     def build(self):
         # Set the window size and background color
         Window.size = (600, 250)
