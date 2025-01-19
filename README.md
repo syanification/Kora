@@ -69,21 +69,26 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## About Me: Korify
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+**Korify** is a groundbreaking app designed to revolutionize the music listening experience for users with specific needs. Our mission is to enhance the usability of Spotify, the world's most popular music streaming platform, by providing seamless voice input functionality. With Korify, music is just a command away, making it easier than ever to enjoy your favorite tunes without lifting a finger.
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+#### Key Features:
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+- **Request a Song**: Simply ask for the song you want to hear, and Korify will play it instantly. No more scrolling through endless playlists!
+- **Skip a Song**: Not feeling the current track? Just say the word, and Korify will skip to the next song.
+- **Play/Pause a Song**: Control playback effortlessly with your voice. Whether you're in the middle of a workout or cooking dinner, Korify has you covered.
+- **Play/Pause Button**: For those moments when you prefer a tactile experience, our intuitive play/pause button is always within reach.
+- **Next Song Button**: Easily skip to the next track with a simple press, ensuring your music flow is never interrupted.
+
+#### Why Choose Korify?
+
+Korify is dedicated to making music accessible and enjoyable for everyone. Our app is designed with user-friendliness in mind, ensuring that your listening experience is as smooth and intuitive as possible. Whether you're a busy professional, a multitasking parent, or someone with specific accessibility needs, Korify is here to enhance your music journey.
+
+Join the Korify community today and discover a new way to experience music. With Korify, your favorite songs are always just a voice command away.
 
 Use the `BLANK_README.md` to get started.
 
@@ -152,17 +157,19 @@ This is an example of how to list things you need to use the software and how to
 
 
 <!-- USAGE EXAMPLES -->
+<!-- 
 ## Usage
 
 Current functionality is as follows:
 
-- Play a song via voice prompt
+- Request a song via voice prompt
 - Skip a song via voice prompt
 - Play / Pause a song via voice prompt
 - Play / Pause button
 - Next song button
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+-->
 
 
 
