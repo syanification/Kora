@@ -2,7 +2,7 @@ import sendPrompt
 import SpeechToText
 from spotifyconnect import SpotifyConnect
 from setup import loadBasicInfo
-from Actions import 
+from Actions import receive_resume
 
 
 class Aladeen:
@@ -67,6 +67,7 @@ class Aladeen:
 
     def resume(self):
         self.sp.resumePlayback()
+        receive_resume()
         print("Resuming")
 
     def skip(self):
