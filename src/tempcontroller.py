@@ -26,5 +26,12 @@ def main3():
     aladeen.handleVoiceCommands()
 
 
+def main4():
+    aladeen = Aladeen()
+    print(aladeen.getPlaybackState())
+    print("\n\n\n\n--------------------------------------------------\n\n\n\n")
+    print(aladeen.play("basil pesto sedge"))
+
+
 if __name__ == "__main__":
-    main3()
+    main4()

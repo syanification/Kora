@@ -38,6 +38,25 @@ class SpotifyConnect:
             print(e)
             raise Exception("Unable to initialize connection to Spotify API")
 
+    def __getRelevantAttrs(self, track: dict) -> tuple:
+        title = track["name"]
+        length = track["duration_ms"]
+        coverurl = track["album"]["images"][0]["url"]
+        return (title, length, coverurl)
+
+    def getCurrentPlaybackState(self):
+        try:
+            playbackState = self.__sp.current_playback()
+            isPlaying = playbackState["is_playing"]
+            uri = playbackState["item"]["uri"]
+            track = self.__sp.track(uri)
+        except SpotifyException as e:
+            print(e)
+            raise self.PlaybackError("Error getting current playback state")
+
+        title, length, coverurl = self.__getRelevantAttrs(track)
+        return (title, length, coverurl, isPlaying)
+
     def searchTracks(self, query: str):
         """Returns the first 10 tracks received from the search"""
         try:
@@ -50,8 +69,10 @@ class SpotifyConnect:
         """Searches the song using the query in songQuery
         and plays the top result"""
 
-        songUri = self.searchTracks(songQuery)[0]["uri"]
+        track = self.searchTracks(songQuery)[0]
+        songUri = track["uri"]
         self.playSong(songUri)
+        return self.__getRelevantAttrs(track)
 
     def playSong(self, uri: str):
         """plays the song with uri 'uri'"""
@@ -80,6 +101,8 @@ class SpotifyConnect:
         """Skips to the next song in queue"""
         try:
             self.__sp.next_track()
+            self.__sp.current_playback()
+
         except SpotifyException as e:
             print(e)
             raise self.PlaybackError("Error skipping to next song")
