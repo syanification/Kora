@@ -9,6 +9,7 @@ class Aladeen:
     def __init__(self):
         self.sp = self.initializeSpotify()
 
+
     def initializeSpotify(self):
         spConnectInfo = loadBasicInfo()
         if not spConnectInfo:
@@ -19,25 +20,20 @@ class Aladeen:
             print(e)
             return None
 
-    def getCommand(self):
-        """get command from ai"""
-        pass
-
     def handleVoiceCommands(self):
         """get voice input user"""
         # call the voice shit to get the speech to text input
         query = ""
         result = SpeechToText.getAudioString()
-        print("speech to text result: %s" % (result))
+        print("Speech to text result: %s" % (result))
+
         command = sendPrompt.getCommand(result)
-        print("command: %s" % command)
+        print("Command: %s" % command)
 
         if command[:4] == "play":
             query = command[5:]
             command = command[:4]
 
-        print(command)
-        print(query)
         try:
             match command:
                 case "play":
@@ -52,6 +48,8 @@ class Aladeen:
                     self.sp.resumePlayback()
                     print("Resuming")
 
+                case "skip":
+
                 case "None":
                     pass
 
@@ -61,6 +59,13 @@ class Aladeen:
         except SpotifyConnect.SearchError as e:
             print(e)
 
-    def executeVoiceCommand(self):
-        """transform voice input into command
-        to spotify"""
+    def play(self):
+        pass
+
+    def pause(self):
+        pass
+
+    def skip(self):
+        self.sp.skipSong()
+        print("Skipping")
+        pass
