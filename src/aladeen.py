@@ -1,19 +1,36 @@
+from kivy.event import EventDispatcher
 import sendPrompt
 import SpeechToText
 from spotifyconnect import SpotifyConnect
 from setup import loadBasicInfo
-from Actions import receive_resume
 
 
-class Aladeen:
+class Aladeen(EventDispatcher):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.register_event_type("on_play")
+        self.register_event_type("on_pause")
+        self.register_event_type("on_resume")
+        self.register_event_type("on_skip")
 
-    def __init__(self):
         self.sp = self.initializeSpotify()
+
+    def on_play(self, *args):
+        pass
+
+    def on_pause(self, *args):
+        pass
+
+    def on_resume(self, *args):
+        pass
+
+    def on_skip(self, *args):
+        pass
 
     def initializeSpotify(self):
         spConnectInfo = loadBasicInfo()
         if not spConnectInfo:
-            return None  # spotify creds couldn't load
+            return None
         try:
             return SpotifyConnect(spConnectInfo)
         except Exception as e:
@@ -21,11 +38,10 @@ class Aladeen:
             return None
 
     def handleVoiceCommands(self):
-        """get voice input user"""
-        # call the voice shit to get the speech to text input
+        """Handles voice commands."""
         query = ""
         result = SpeechToText.getAudioString()
-        print("Speech to text result: %s" % (result))
+        print("Speech to text result: %s" % result)
 
         command = sendPrompt.getCommand(result)
         print("Command: %s" % command)
@@ -38,16 +54,12 @@ class Aladeen:
             match command:
                 case "play":
                     self.play(query)
-
                 case "pause":
                     self.pause()
-
                 case "resume":
                     self.resume()
-
                 case "skip":
                     self.skip()
-
                 case "None":
                     pass
 
@@ -61,15 +73,21 @@ class Aladeen:
         self.sp.findAndPlaySong(query)
         print("Playing song")
 
+        # Change this to sending the relevant details about the song
+        title = length = coverurl = "GET FUCKED"
+        self.dispatch("on_play", title, length, coverurl)
+
     def pause(self):
         self.sp.pausePlayback()
         print("Pausing")
+        self.dispatch("on_pause")  # Notify UI
 
     def resume(self):
         self.sp.resumePlayback()
-        receive_resume()
         print("Resuming")
+        self.dispatch("on_resume")  # Notify UI
 
     def skip(self):
         self.sp.skipSong()
         print("Skipping")
+        self.dispatch("on_skip")  # Notify UI

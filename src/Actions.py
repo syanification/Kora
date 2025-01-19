@@ -1,14 +1,16 @@
+"""from aladeen import Aladeen
+
+aladeen = Aladeen()
+
+
 def speak_action():
-    print("speak_action() method called")
+    aladeen.handleVoiceCommands()
 
 
 def pause_action():
-    print("pause_action() method called")
+    aladeen.pause()
 
 
 def next_action():
-    print("next_action() method called")
-
-
-def receive_resume():
-    print("I received resume")
+    aladeen.skip()
+    """
