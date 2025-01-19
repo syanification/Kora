@@ -5,7 +5,6 @@ from kivy.uix.label import Label
 from kivy.uix.image import Image
 from kivy.uix.widget import Widget
 from kivy.uix.floatlayout import FloatLayout
-import Actions
 from aladeen import Aladeen
 
 
