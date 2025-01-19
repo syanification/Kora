@@ -66,7 +66,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/syanification/Kora)
 
 **Korify** is a groundbreaking app designed to revolutionize the music listening experience for users with specific needs. Our mission is to enhance the usability of Spotify, the world's most popular music streaming platform, by providing seamless voice input functionality. With Korify, music is just a command away, making it easier than ever to enjoy your favorite tunes without lifting a finger.
 
