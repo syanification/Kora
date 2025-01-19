@@ -2,9 +2,11 @@ from kivy.app import App
 from kivy.core.window import Window
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
-from kivy.uix.image import Image
+from kivy.uix.image import AsyncImage  # Import AsyncImage
 from kivy.uix.widget import Widget
 from kivy.uix.floatlayout import FloatLayout
+from kivy.clock import Clock
+import time
 from aladeen import Aladeen
 
 
@@ -14,6 +16,34 @@ class MyKivyApp(App):
         self.isPaused = True  # Store the state on self
         self.pause_button_down = "../img/play_down.png"
         self.pause_button = None  # Reference to the pause button
+        self._title = "No Device Found, Please Start A Device And Reload"  # Use a private variable for the title
+        self._coverurl = "../img/empty.png"  # Use a private variable for the coverurl
+        self.length = None
+        self.song_title = None  # Reference to the song title label
+        self.top_image = None  # Reference to the top image
+        self.progress = None
+        self.scheduled_event = None
+
+    @property
+    def title(self):
+        return self._title
+
+    @title.setter
+    def title(self, value):
+        self._title = value
+        if self.song_title:
+            self.song_title.text = value
+
+    @property
+    def coverurl(self):
+        return self._coverurl
+
+    @coverurl.setter
+    def coverurl(self, value):
+        self._coverurl = value
+        print(value)
+        if self.top_image:
+            self.top_image.source = value
 
     def build(self):
         self.aladeen = Aladeen()
@@ -44,7 +74,7 @@ class MyKivyApp(App):
         root_layout = FloatLayout()
 
         # Background Image
-        background = Image(
+        background = AsyncImage(
             source="../img/bkg.png",
             allow_stretch=True,
             size_hint=(1, 1),
@@ -70,8 +100,8 @@ class MyKivyApp(App):
         # Replace direct song_title addition with a FloatLayout
         title_layout = FloatLayout(size_hint=(None, None), size=(300, 60))
 
-        song_title = Label(
-            text="SONG TITLE AVAILABLE",
+        self.song_title = Label(
+            text=self.title,
             color=(1, 1, 1, 1),
             font_size=24,
             bold=True,
@@ -83,14 +113,14 @@ class MyKivyApp(App):
         )
 
         # Bind the size to the texture_size to ensure the height adjusts based on the text content
-        song_title.bind(
+        self.song_title.bind(
             texture_size=lambda instance, size: setattr(
                 instance, "size", (300, size[1])
             )
         )
 
         # Add the label to the float layout
-        title_layout.add_widget(song_title)
+        title_layout.add_widget(self.song_title)
 
         # Add the float layout to the music layout
         music_layout.add_widget(title_layout)
@@ -105,13 +135,13 @@ class MyKivyApp(App):
         )
 
         # Create ImageButtons with consistent styling
-        speak_button = Image(
+        speak_button = AsyncImage(
             source="../img/mic.png", size_hint=(None, None), size=(100, 100)
         )
-        self.pause_button = Image(
+        self.pause_button = AsyncImage(
             source="../img/play.png", size_hint=(None, None), size=(40, 40)
         )
-        next_button = Image(
+        next_button = AsyncImage(
             source="../img/skip.png", size_hint=(None, None), size=(40, 40)
         )
 
@@ -137,10 +167,7 @@ class MyKivyApp(App):
         )
         self.pause_button.bind(
             on_touch_up=lambda instance, touch: self.on_button_up(
-                instance,
-                touch,
-                "../img/pause.png",
-                lambda: playPause(self.pause_button),
+                instance, touch, "../img/pause.png", lambda: playPause(self.pause_button)
             )
         )
         next_button.bind(
@@ -204,16 +231,18 @@ class MyKivyApp(App):
             pos_hint={"center_x": 0.5, "center_y": 0.9},
         )
 
-        top_image = Image(
-            source="../img/empty.png",
+        self.top_image = AsyncImage(
+            source=self.coverurl,
             size_hint=(None, None),
             allow_stretch=True,
             size=(180, 180),
             pos=(56, 115),
         )
 
-        top_layout.add_widget(top_image)
+        top_layout.add_widget(self.top_image)
         root_layout.add_widget(top_layout)
+
+        self.on_launch2(*self.aladeen.getPlaybackState())
 
         return root_layout
 
@@ -226,18 +255,56 @@ class MyKivyApp(App):
             instance.source = up_image
             action()
 
-    def on_launch(self, instance, title, length, coverurl, isPlaying):
+    def on_launch2(self, title, length, coverurl, isPlaying, progress):
+        print("\n\n\n")
         print(title)
         print(length)
         print(coverurl)
         print(isPlaying)
+        print(progress)
+        print("\n\n\n")
         print("LAUNCHED")
+        time.sleep(0.3)
+        if title != None:
+                print("test")
+                self.title = title
+                self.coverurl = coverurl
+                self.isPaused = not isPlaying
+                self.pause_button.source = "../img/play.png" if self.isPaused else "../img/pause.png"
+                self.length = length
+                self.progress = progress
+                print(((length - progress) / 1000) + 1)
+                if self.scheduled_event:
+                        self.scheduled_event.cancel()
+                        self.scheduled_event = None
+                self.scheduled_event = Clock.schedule_once(
+                        lambda dt: self.on_launch2(*self.aladeen.getPlaybackState()), 
+                        ((length - progress) / 1000) + 1
+                )
+
+
+    def on_launch(self, instance, title, length, coverurl, isPlaying, progress):
+        print("\n\n\n")
+        print(title)
+        print(length)
+        print(coverurl)
+        print(isPlaying)
+        print(progress)
+        print("\n\n\n")
+        print("LAUNCHED")
+        self.title = title
+        self.coverurl = coverurl
+        self.length = length
+        self.progress = progress
 
     def on_play(self, instance, title, length, coverurl):
         print("New song played")
         self.isPaused = False
         self.pause_button.source = "../img/pause.png"
         self.pause_button_down = "../img/pause_down.png"
+        print("called")
+        self.on_launch2(*self.aladeen.getPlaybackState())
+        
 
     def on_playback_pause(self, instance):
         print("paused")
@@ -250,12 +317,23 @@ class MyKivyApp(App):
         self.isPaused = False
         self.pause_button.source = "../img/pause.png"
         self.pause_button_down = "../img/pause_down.png"
+        self.progress = self.aladeen.getPlaybackState()[4]
+        self.length = self.aladeen.getPlaybackState()[1]
+        self.length = self.length - self.progress
+        if self.scheduled_event:
+            self.scheduled_event.cancel()
+            self.scheduled_event = None
+        self.scheduled_event = Clock.schedule_once(
+            lambda dt: self.on_launch2(*self.aladeen.getPlaybackState()), 
+            ((self.length - self.progress) / 1000) + 1
+        )
 
-    def on_skip(self, instance, title, length, coverurl, isPlaying):
+    def on_skip(self, instance, title, length, coverurl, isPlaying, progress):
         print("Skipped to next song")
         self.isPaused = False
         self.pause_button.source = "../img/pause.png"
         self.pause_button_down = "../img/pause_down.png"
+        self.on_launch2(*self.aladeen.getPlaybackState())
 
 
 if __name__ == "__main__":

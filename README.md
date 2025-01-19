@@ -136,7 +136,7 @@ This is an example of how to list things you need to use the software and how to
 4. Create a file `api-config.json` inside of `config/` and put your secret key and cid inside.
     ```json
     {
-        "scope": "playlist-modify-private playlist-modify-public user-modify-playback-state",
+        "scope": "playlist-modify-private playlist-modify-public user-modify-playback-state user-read-playback-state",
         "cid": "YOUR-CID",
         "secret": "YOUR-SECRET-KEY",
         "redirectURI": "http://localhost:8888/callback"

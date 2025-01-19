@@ -48,17 +48,18 @@ class SpotifyConnect:
         try:
             playbackState = self.__sp.current_playback()
             if not playbackState:
-                return (None, None, None, None)
+                return (None, None, None, None, None)
 
             isPlaying = playbackState["is_playing"]
             uri = playbackState["item"]["uri"]
+            progress = playbackState["progress_ms"]
             track = self.__sp.track(uri)
         except SpotifyException as e:
             print(e)
             raise self.PlaybackError("Error getting current playback state")
 
         title, length, coverurl = self.__getRelevantAttrs(track)
-        return (title, length, coverurl, isPlaying)
+        return (title, length, coverurl, isPlaying, progress)
 
     def searchTracks(self, query: str):
         """Returns the first 10 tracks received from the search"""
