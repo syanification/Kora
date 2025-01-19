@@ -69,7 +69,7 @@ class MyKivyApp(App):
         # Attach callbacks to buttons
         speak_button.bind(on_touch_down=lambda instance, touch: self.on_button_down(instance, touch, speak_button_down, Actions.speak_action))
         speak_button.bind(on_touch_up=lambda instance, touch: self.on_button_up(instance, touch, "../img/mic.png"))
-        pause_button.bind(on_touch_down=lambda instance, touch: self.on_button_down(instance, touch, pause_button_down, Actions.pause_action))
+        pause_button.bind(on_touch_down=lambda instance, touch: self.on_button_down(instance, touch, pause_button_down, Actions.toggle_action))
         pause_button.bind(on_touch_up=lambda instance, touch: self.on_button_up(instance, touch, "../img/pause.png"))
         next_button.bind(on_touch_down=lambda instance, touch: self.on_button_down(instance, touch, next_button_down, Actions.next_action))
         next_button.bind(on_touch_up=lambda instance, touch: self.on_button_up(instance, touch, "../img/skip.png"))
