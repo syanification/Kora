@@ -9,6 +9,7 @@ def pause_action():
 def toggle_action():
     print("toggle_action() method called")
 
+
 def receive_resume():
     print("I received resume")
 

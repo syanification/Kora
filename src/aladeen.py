@@ -2,13 +2,13 @@ import sendPrompt
 import SpeechToText
 from spotifyconnect import SpotifyConnect
 from setup import loadBasicInfo
+from Actions import receive_resume
 
 
 class Aladeen:
 
     def __init__(self):
         self.sp = self.initializeSpotify()
-
 
     def initializeSpotify(self):
         spConnectInfo = loadBasicInfo()
@@ -37,18 +37,16 @@ class Aladeen:
         try:
             match command:
                 case "play":
-                    self.sp.findAndPlaySong(query)
-                    print("Playing song")
+                    self.play(query)
 
                 case "pause":
-                    self.sp.pausePlayback()
-                    print("Pausing")
+                    self.pause()
 
                 case "resume":
-                    self.sp.resumePlayback()
-                    print("Resuming")
+                    self.resume()
 
                 case "skip":
+                    self.skip()
 
                 case "None":
                     pass
@@ -59,13 +57,19 @@ class Aladeen:
         except SpotifyConnect.SearchError as e:
             print(e)
 
-    def play(self):
-        pass
+    def play(self, query):
+        self.sp.findAndPlaySong(query)
+        print("Playing song")
 
     def pause(self):
-        pass
+        self.sp.pausePlayback()
+        print("Pausing")
+
+    def resume(self):
+        self.sp.resumePlayback()
+        receive_resume()
+        print("Resuming")
 
     def skip(self):
         self.sp.skipSong()
         print("Skipping")
-        pass
