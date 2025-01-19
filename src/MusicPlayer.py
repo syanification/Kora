@@ -9,7 +9,6 @@ import Actions
 
 
 class MyKivyApp(App):
-
     def build(self):
         # Set the window size and background color
         Window.size = (600, 250)
@@ -25,24 +24,27 @@ class MyKivyApp(App):
         main_layout = BoxLayout(orientation='vertical', padding=20, spacing=20, size_hint=(None, None), size=(600, 250), pos_hint={'center_x': 0.5, 'center_y': 0.5})
 
         # Music Player Layout
-        music_layout = BoxLayout(
-            orientation="vertical", size_hint=(None, None), padding=20, spacing=20
-        )
+        music_layout = BoxLayout(orientation='vertical', size_hint=(None, None), padding=20, spacing=20)
         music_layout.size = (300, 200)  # Ensure the music layout fits on screen
 
         # Replace direct song_title addition with a FloatLayout
         title_layout = FloatLayout(size_hint=(None, None), size=(300, 60))
 
         song_title = Label(
-            text="Song Title Available",
+            text="SONG TITLE AVAILABLE",
             color=(1, 1, 1, 1),
             font_size=24,
             bold=True,
             size_hint=(None, None),
             halign='left',
             valign='bottom',
-            pos=(350,220),
+            pos=(250,250),
             text_size=(300, None)  # Limit the width to 300 pixels
+        )
+
+        # Bind the size to the texture_size to ensure the height adjusts based on the text content
+        song_title.bind(
+            texture_size=lambda instance, size: setattr(instance, 'size', (300, size[1]))
         )
 
         # Add the label to the float layout
@@ -59,10 +61,18 @@ class MyKivyApp(App):
         pause_button = Image(source="../img/pause.png", size_hint=(None, None), size=(40, 40))
         next_button = Image(source="../img/skip.png", size_hint=(None, None), size=(40, 40))
 
+        # Define the image sources for the pressed state
+        speak_button_down = "../img/mic_down.png"
+        pause_button_down = "../img/pause_down.png"
+        next_button_down = "../img/skip_down.png"
+
         # Attach callbacks to buttons
-        speak_button.bind(on_touch_down=lambda instance, touch: Actions.speak_action() if speak_button.collide_point(*touch.pos) else None)
-        pause_button.bind(on_touch_down=lambda instance, touch: Actions.pause_action() if pause_button.collide_point(*touch.pos) else None)
-        next_button.bind(on_touch_down=lambda instance, touch: Actions.next_action() if next_button.collide_point(*touch.pos) else None)
+        speak_button.bind(on_touch_down=lambda instance, touch: self.on_button_down(instance, touch, speak_button_down, Actions.speak_action))
+        speak_button.bind(on_touch_up=lambda instance, touch: self.on_button_up(instance, touch, "../img/mic.png"))
+        pause_button.bind(on_touch_down=lambda instance, touch: self.on_button_down(instance, touch, pause_button_down, Actions.pause_action))
+        pause_button.bind(on_touch_up=lambda instance, touch: self.on_button_up(instance, touch, "../img/pause.png"))
+        next_button.bind(on_touch_down=lambda instance, touch: self.on_button_down(instance, touch, next_button_down, Actions.next_action))
+        next_button.bind(on_touch_up=lambda instance, touch: self.on_button_up(instance, touch, "../img/skip.png"))
 
         # Create a horizontal BoxLayout for pause and next
         button_row = BoxLayout(orientation='horizontal', size_hint=(None, None), spacing=150, padding=[0,0,0,-25])
@@ -86,9 +96,7 @@ class MyKivyApp(App):
         center_layout = BoxLayout(orientation='horizontal', size_hint=(1, 1), padding=[0, 0], spacing=0)
         center_layout.add_widget(Widget(size_hint_y=0.35))  # Spacer to center vertically
         center_layout.add_widget(music_layout)
-        center_layout.add_widget(
-            Widget(size_hint_y=0.35)
-        )  # Spacer to center vertically
+        center_layout.add_widget(Widget(size_hint_y=0.35))  # Spacer to center vertically
 
         main_layout.add_widget(center_layout)
 
@@ -108,12 +116,18 @@ class MyKivyApp(App):
         )
 
         top_layout.add_widget(top_image)
-
-        # Add the new FloatLayout to root_layout last so it's above everything
         root_layout.add_widget(top_layout)
 
         return root_layout
 
+    def on_button_down(self, instance, touch, down_image, action):
+        if instance.collide_point(*touch.pos):
+            instance.source = down_image
+            action()
+
+    def on_button_up(self, instance, touch, up_image):
+        if instance.collide_point(*touch.pos):
+            instance.source = up_image
 
 if __name__ == "__main__":
     MyKivyApp().run()
