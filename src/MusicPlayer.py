@@ -9,13 +9,31 @@ from aladeen import Aladeen
 
 
 class MyKivyApp(App):
-    def build(self):
+    def __init__(self, **kwargs):
+        super(MyKivyApp, self).__init__(**kwargs)
+        self.isPaused = True  # Store the state on self
+        self.pause_button_down = "../img/play_down.png"
+        self.pause_button = None  # Reference to the pause button
 
+    def build(self):
         self.aladeen = Aladeen()
         self.aladeen.bind(on_play=self.on_play)
         self.aladeen.bind(on_pause=self.on_playback_pause)
         self.aladeen.bind(on_resume=self.on_playback_resume)
         self.aladeen.bind(on_skip=self.on_skip)
+
+        def playPause(pause_button):
+            print("runs")
+            if self.isPaused:
+                self.aladeen.resume()
+                self.isPaused = False
+                pause_button.source = "../img/pause.png"  # Change to play image
+                self.pause_button_down = "../img/pause_down.png"
+            else:
+                self.aladeen.pause()
+                self.isPaused = True
+                pause_button.source = "../img/play.png"  # Change to pause image
+                self.pause_button_down = "../img/play_down.png"
 
         # Set the window size and background color
         Window.size = (600, 250)
@@ -89,47 +107,46 @@ class MyKivyApp(App):
         speak_button = Image(
             source="../img/mic.png", size_hint=(None, None), size=(100, 100)
         )
-        pause_button = Image(
-            source="../img/pause.png", size_hint=(None, None), size=(40, 40)
+        self.pause_button = Image(
+            source="../img/play.png", size_hint=(None, None), size=(40, 40)
         )
         next_button = Image(
             source="../img/skip.png", size_hint=(None, None), size=(40, 40)
         )
 
         # Define the image sources for the pressed state
-        speak_button_down = "../img/mic_down.png"
-        pause_button_down = "../img/pause_down.png"
+        speak_button_down = "../img/mic_listening.png"
         next_button_down = "../img/skip_down.png"
 
         # Attach callbacks to buttons
         speak_button.bind(
             on_touch_down=lambda instance, touch: self.on_button_down(
-                instance, touch, speak_button_down, self.aladeen.handleVoiceCommands
+                instance, touch, speak_button_down
             )
         )
         speak_button.bind(
             on_touch_up=lambda instance, touch: self.on_button_up(
-                instance, touch, "../img/mic.png"
+                instance, touch, "../img/mic.png", self.aladeen.handleVoiceCommands
             )
         )
-        pause_button.bind(
+        self.pause_button.bind(
             on_touch_down=lambda instance, touch: self.on_button_down(
-                instance, touch, pause_button_down, self.aladeen.pause
+                instance, touch, self.pause_button_down
             )
         )
-        pause_button.bind(
+        self.pause_button.bind(
             on_touch_up=lambda instance, touch: self.on_button_up(
-                instance, touch, "../img/pause.png"
+                instance, touch, "../img/pause.png", lambda: playPause(self.pause_button)
             )
         )
         next_button.bind(
             on_touch_down=lambda instance, touch: self.on_button_down(
-                instance, touch, next_button_down, self.aladeen.skip
+                instance, touch, next_button_down
             )
         )
         next_button.bind(
             on_touch_up=lambda instance, touch: self.on_button_up(
-                instance, touch, "../img/skip.png"
+                instance, touch, "../img/skip.png", self.aladeen.skip
             )
         )
 
@@ -142,7 +159,7 @@ class MyKivyApp(App):
         )
 
         # Add pause and next to the horizontal layout
-        button_row.add_widget(pause_button)
+        button_row.add_widget(self.pause_button)
         button_row.add_widget(next_button)
 
         # Create a vertical layout for the speak button
@@ -196,26 +213,38 @@ class MyKivyApp(App):
 
         return root_layout
 
-    def on_button_down(self, instance, touch, down_image, action):
+    def on_button_down(self, instance, touch, down_image):
         if instance.collide_point(*touch.pos):
             instance.source = down_image
-            action()
 
-    def on_button_up(self, instance, touch, up_image):
+    def on_button_up(self, instance, touch, up_image, action):
         if instance.collide_point(*touch.pos):
             instance.source = up_image
+            action()
 
     def on_play(self, instance, title, length, coverurl):
         print("New song played")
+        self.isPaused = False
+        self.pause_button.source = "../img/pause.png"
+        self.pause_button_down = "../img/pause_down.png"
 
     def on_playback_pause(self, instance):
         print("paused")
+        self.isPaused = True
+        self.pause_button.source = "../img/play.png"
+        self.pause_button_down = "../img/play_down.png"
 
     def on_playback_resume(self, instance):
         print("resumed")
+        self.isPaused = False
+        self.pause_button.source = "../img/pause.png"
+        self.pause_button_down = "../img/pause_down.png"
 
     def on_skip(self, instance):
         print("Skipped to next song")
+        self.isPaused = False
+        self.pause_button.source = "../img/pause.png"
+        self.pause_button_down = "../img/pause_down.png"
 
 
 if __name__ == "__main__":
