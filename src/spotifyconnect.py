@@ -47,6 +47,9 @@ class SpotifyConnect:
     def getCurrentPlaybackState(self):
         try:
             playbackState = self.__sp.current_playback()
+            if not playbackState:
+                return (None, None, None, None)
+
             isPlaying = playbackState["is_playing"]
             uri = playbackState["item"]["uri"]
             track = self.__sp.track(uri)
@@ -101,7 +104,7 @@ class SpotifyConnect:
         """Skips to the next song in queue"""
         try:
             self.__sp.next_track()
-            self.__sp.current_playback()
+            return self.getCurrentPlaybackState()
 
         except SpotifyException as e:
             print(e)

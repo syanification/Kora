@@ -21,6 +21,7 @@ class MyKivyApp(App):
         self.aladeen.bind(on_pause=self.on_playback_pause)
         self.aladeen.bind(on_resume=self.on_playback_resume)
         self.aladeen.bind(on_skip=self.on_skip)
+        self.aladeen.bind(on_launch=self.on_launch)
 
         def playPause(pause_button):
             print("runs")
@@ -136,7 +137,10 @@ class MyKivyApp(App):
         )
         self.pause_button.bind(
             on_touch_up=lambda instance, touch: self.on_button_up(
-                instance, touch, "../img/pause.png", lambda: playPause(self.pause_button)
+                instance,
+                touch,
+                "../img/pause.png",
+                lambda: playPause(self.pause_button),
             )
         )
         next_button.bind(
@@ -222,6 +226,13 @@ class MyKivyApp(App):
             instance.source = up_image
             action()
 
+    def on_launch(self, instance, title, length, coverurl, isPlaying):
+        print(title)
+        print(length)
+        print(coverurl)
+        print(isPlaying)
+        print("LAUNCHED")
+
     def on_play(self, instance, title, length, coverurl):
         print("New song played")
         self.isPaused = False
@@ -240,7 +251,7 @@ class MyKivyApp(App):
         self.pause_button.source = "../img/pause.png"
         self.pause_button_down = "../img/pause_down.png"
 
-    def on_skip(self, instance):
+    def on_skip(self, instance, title, length, coverurl, isPlaying):
         print("Skipped to next song")
         self.isPaused = False
         self.pause_button.source = "../img/pause.png"

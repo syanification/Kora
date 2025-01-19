@@ -12,8 +12,11 @@ class Aladeen(EventDispatcher):
         self.register_event_type("on_pause")
         self.register_event_type("on_resume")
         self.register_event_type("on_skip")
+        self.register_event_type("on_launch")
 
         self.sp = self.initializeSpotify()
+        title, length, coverurl, isPlaying = self.getPlaybackState()
+        self.dispatch("on_launch", title, length, coverurl, isPlaying)  # Notify UI
 
     def on_play(self, *args):
         pass
@@ -25,6 +28,9 @@ class Aladeen(EventDispatcher):
         pass
 
     def on_skip(self, *args):
+        pass
+
+    def on_launch(self, *args):
         pass
 
     def initializeSpotify(self):
@@ -73,24 +79,22 @@ class Aladeen(EventDispatcher):
         title, length, coverurl = self.sp.findAndPlaySong(query)
         print("Playing song")
 
-        # Change this to sending the relevant details about the song
         self.dispatch("on_play", title, length, coverurl)
 
     def pause(self):
         self.sp.pausePlayback()
         print("Pausing")
-        self.dispatch("on_pause")  # Notify UI
+        self.dispatch("on_pause")
 
     def resume(self):
         self.sp.resumePlayback()
         print("Resuming")
-        self.dispatch("on_resume")  # Notify UI
+        self.dispatch("on_resume")
 
     def skip(self):
-        self.sp.skipSong()
-        isPlaying, title, coverurl = self.sp.getCurrentPlaybackState()
+        title, length, coverurl, isPlaying = self.sp.skipSong()
         print("Skipping")
-        self.dispatch("on_skip")  # Notify UI
+        self.dispatch("on_skip", title, length, coverurl, isPlaying)
 
     def getPlaybackState(self):
         try:
