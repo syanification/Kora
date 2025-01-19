@@ -8,3 +8,6 @@ def pause_action():
 
 def next_action():
     print("next_action() method called")
+
+def receive_resume():
+    print("I received resume")
