@@ -33,11 +33,9 @@
     <a href="https://github.com/syanification/Kora"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/syanification/Kora/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     &middot;
-    <a href="https://github.com/othneildrew/Best-README-Template/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
-    &middot;
-    <a href="https://github.com/othneildrew/Best-README-Template/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://github.com/syanification/Kora/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
 
@@ -53,8 +51,6 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li><a href="#roadmap">Key Features</a></li>
-    <li><a href="#roadmap">Why Chose Korify</a></li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
@@ -62,10 +58,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
@@ -90,8 +83,6 @@
 Korify is dedicated to making music accessible and enjoyable for everyone. Our app is designed with user-friendliness in mind, ensuring that your listening experience is as smooth and intuitive as possible. Whether you're a busy professional, a multitasking parent, or someone with specific accessibility needs, Korify is here to enhance your music journey.
 
 Join the Korify community today and discover a new way to experience music. With Korify, your favorite songs are always just a voice command away.
-
-Use the `BLANK_README.md` to get started.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -210,6 +201,6 @@ This project would not have been possible without these fantastic resources:
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: img/preview.png
 
 
